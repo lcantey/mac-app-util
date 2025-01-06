@@ -151,7 +151,7 @@
             (rsync :include "*.icns" :exclude "*" :recursive ,from-cnts ,to-cnts))))))
 
 (defun mktrampoline-app (app trampoline)
-  (let ((cmd (format NIL "do shell script \"open '~A'\"" app)))
+  (let ((cmd (format NIL "do shell script \"/usr/bin/open '~A'\"" app)))
     (sh `("/usr/bin/osacompile" #\o ,trampoline #\e ,cmd))
     (sync-icons app trampoline)
     (copy-paths (infoplist app) (infoplist trampoline) *copyable-app-props*)))
